@@ -1,11 +1,11 @@
 const express = require('express');
 
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator/check');
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
-const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 // @route GET api/auth
@@ -16,10 +16,9 @@ router.get('/', auth, async (req, res) => {
     const user = await User.findById(req.user.id).select('-password');
     res.json(user);
   } catch (err) {
-    console.log(err.message);
+    console.error(err.message);
     res.status(500).send('Server Error');
   }
-  res.send('Auth route');
 });
 
 // @route POST api/auth
@@ -29,7 +28,7 @@ router.post(
   '/',
   [
     check('email', 'Please include a valid email').isEmail(),
-    check('password', 'Please is required').exists(),
+    check('password', 'Password is required').exists(),
   ],
   async (req, res) => {
     const errors = validationResult(req);
