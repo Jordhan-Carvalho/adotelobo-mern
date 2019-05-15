@@ -575,3 +575,10 @@ button {
     padding: 0.3rem 0.4rem;
   }
 }
+
+/* loader */
+.loader__image {
+  width: 200px;
+  margin: auto;
+  display: block;
+}

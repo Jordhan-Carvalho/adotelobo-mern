@@ -4,6 +4,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Animal = require('../../models/Animal');
 const auth = require('../../middleware/auth');
 
 // @route GET api/profile/me
@@ -11,20 +12,17 @@ const auth = require('../../middleware/auth');
 // @acess Private
 router.get('/me', auth, async (req, res) => {
   try {
-    const test = await Profile.findOne({ user: req.user.id });
-    console.log(test);
     const profile = await Profile.findOne({ user: req.user.id }).populate(
       'user',
       ['name', 'avatar']
     );
-    console.log(profile);
     if (!profile) {
       return res.status(400).json({ msg: 'There is no profile for this user' });
     }
 
     res.json(profile);
   } catch (err) {
-    console.log(err.message);
+    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
@@ -147,7 +145,8 @@ router.get('/users/:user_id', async (req, res) => {
 // @acess Private
 router.delete('/', auth, async (req, res) => {
   try {
-    // @todo - remove users posts
+    // Remove animals
+    await Animal.deleteMany({ user: req.user.id });
     // Remove profile
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user
