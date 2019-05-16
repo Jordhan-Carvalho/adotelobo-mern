@@ -14,6 +14,8 @@ const AnimalSchema = new mongoose.Schema({
   sex: { type: String, required: true },
   type: { type: String, required: true },
   age: { type: String, required: true },
+  avatar: String,
+  location: String,
   createdAt: { type: Date, default: Date.now },
   likes: [
     {
@@ -33,13 +35,21 @@ const AnimalSchema = new mongoose.Schema({
         type: String,
         required: true,
       },
+      name: {
+        type: String,
+      },
+      avatar: {
+        type: String,
+      },
       date: {
         type: Date,
         default: Date.now,
       },
     },
   ],
-  contact: { tel: String, email: String, zap: String },
+  tel: String,
+  email: String,
+  zap: String,
 });
 
 module.exports = Animal = mongoose.model('animal', AnimalSchema);

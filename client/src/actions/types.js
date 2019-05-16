@@ -13,4 +13,12 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
 export const ACCOUNT_DELETED = 'ACCOUNT_DELETED';
+export const GET_ANIMALS = 'GET_ANIMALS';
+export const GET_ANIMAL = 'GET_ANIMAL';
+export const ANIMAL_ERROR = 'ANIMAL_ERROR';
+export const ADD_ANIMAL = 'ADD_ANIMAL';
+export const DELETE_ANIMAL = 'DELETE_ANIMAL';
+export const UPDATE_LIKES = 'UPDATE_LIKES';
+export const ADD_COMMENT = 'ADD_COMMENT';
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 

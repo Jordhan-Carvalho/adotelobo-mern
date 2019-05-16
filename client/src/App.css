@@ -288,6 +288,14 @@ button {
   color: #0077b5;
 }
 
+.form .social-input i.fa-whatsapp {
+  color: #25d366;
+}
+
+.form .social-input i.fa-envelope {
+  color: #c4302b;
+}
+
 .table th,
 .table td {
   padding: 1rem;

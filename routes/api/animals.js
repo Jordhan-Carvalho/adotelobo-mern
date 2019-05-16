@@ -85,19 +85,28 @@ router.post(
         type,
         age,
         sex,
+        location,
+        email,
+        tel,
+        zap,
       } = req.body;
 
       const newAnimal = new Animal({
-        author: user.id,
+        author: req.user.id,
         authorName: user.name,
+        avatar: user.avatar,
         name,
         image,
         image2,
         image3,
+        location,
         description,
         type,
         age,
         sex,
+        tel,
+        email,
+        zap,
       });
 
       const animal = await newAnimal.save();
@@ -192,7 +201,7 @@ router.put('/unlike/:id', auth, async (req, res) => {
   }
 });
 
-// @route POST api/animals/comment/:post_id
+// @route POST api/animals/comment/:animal_id
 // @desc  Add comment
 // @acess Private
 router.post(
@@ -207,6 +216,7 @@ router.post(
   ],
   async (req, res) => {
     const errors = validationResult(req);
+    console.log(errors);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }

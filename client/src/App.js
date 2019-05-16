@@ -11,6 +11,9 @@ import AddExperience from './components/profile-form/AddExperience';
 import AddEducation from './components/profile-form/AddEducation';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
+import Animals from './components/animals/Animals';
+import AddAnimal from './components/animals/AddAnimal';
+import Animal from './components/animal/Animal';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Alert from './components/layout/Alert';
 import setAuthToken from './utils/setAuthToken';
@@ -42,11 +45,14 @@ useEffect(() => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/profiles" component={Profiles} />
         <Route exact path="/profile/:id" component={Profile} />
+        <Route exact path="/animals" component={Animals} />
+        <Route exact path="/animals/:id" component={Animal} />
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <PrivateRoute exact path="/create-profile" component={CreateProfile} />
         <PrivateRoute exact path="/edit-profile" component={EditProfile} />
         <PrivateRoute exact path="/add-experience" component={AddExperience} />
         <PrivateRoute exact path="/add-education" component={AddEducation} />
+        <PrivateRoute exact path="/add-animal" component={AddAnimal} />
       </Switch>
     </section>
     </>
