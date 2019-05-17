@@ -2,9 +2,21 @@ import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import S3 from "aws-s3";
+import { setAlert } from "../../actions/alert";
 import { addAnimal } from "../../actions/animal";
 
-const AddAnimal = ({ addAnimal, history }) => {
+const config = {
+  bucketName: "adotelobo",
+  dirName: "photos" /* optional */,
+  region: "sa-east-1",
+  accessKeyId: "AKIAJ5LYJYDAWHOJE5YA",
+  secretAccessKey: "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"
+};
+
+const S3Client = new S3(config);
+
+const AddAnimal = ({ addAnimal, history, setAlert }) => {
   const [formData, setFormData] = useState({
     name: "",
     image: "",
@@ -37,6 +49,17 @@ const AddAnimal = ({ addAnimal, history }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const uploadImage = async e => {
+    try {
+      const resp = await S3Client.uploadFile(e.target.files[0]);
+      setFormData({ ...formData, image: resp.location });
+      setAlert("Image Upload Success", "success");
+    } catch (error) {
+      console.log(error);
+      setAlert("Image Upload Failed", "danger");
+    }
+  };
+
   const onSubmit = async e => {
     e.preventDefault();
     addAnimal(formData, history);
@@ -62,13 +85,7 @@ const AddAnimal = ({ addAnimal, history }) => {
           <small className="form-text">What`s the pet name ?</small>
         </div>
         <div className="form-group">
-          <input
-            type="text"
-            placeholder="Image URL"
-            name="image"
-            value={image}
-            onChange={e => onChange(e)}
-          />
+          <input type="file" name="image" onChange={e => uploadImage(e)} />
           <small className="form-text">Paste image URL</small>
         </div>
         <div className="form-group">
@@ -184,10 +201,11 @@ const AddAnimal = ({ addAnimal, history }) => {
 };
 
 AddAnimal.propTypes = {
-  addAnimal: PropTypes.func.isRequired
+  addAnimal: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { addAnimal }
+  { addAnimal, setAlert }
 )(withRouter(AddAnimal));

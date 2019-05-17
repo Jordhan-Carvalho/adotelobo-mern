@@ -59,6 +59,9 @@ router.post(
       check('sex', 'sex is required')
         .not()
         .isEmpty(),
+      check('image', 'image is required')
+        .not()
+        .isEmpty(),
       check('type', 'type is required')
         .not()
         .isEmpty(),
