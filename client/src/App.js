@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import NavBar from './components/layout/NavBar';
 import Landing from './components/layout/Landing';
 import Login from './components/auth/Login';
@@ -14,6 +14,7 @@ import Profile from './components/profile/Profile';
 import Animals from './components/animals/Animals';
 import AddAnimal from './components/animals/AddAnimal';
 import Animal from './components/animal/Animal';
+import NotFound from './components/layout/NotFound';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Alert from './components/layout/Alert';
 import setAuthToken from './utils/setAuthToken';
@@ -37,6 +38,7 @@ useEffect(() => {
   return ( 
     <>
     <NavBar />
+    <Switch>
     <Route exact path ="/" component={ Landing } />
     <section className="container">
       <Alert/>
@@ -53,8 +55,11 @@ useEffect(() => {
         <PrivateRoute exact path="/add-experience" component={AddExperience} />
         <PrivateRoute exact path="/add-education" component={AddEducation} />
         <PrivateRoute exact path="/add-animal" component={AddAnimal} />
+        <Route path="/not-found" component={NotFound} />
+        <Redirect to="/not-found" />
       </Switch>
-    </section>
+      </section>
+      </Switch>
     </>
    );
 }
