@@ -7,11 +7,11 @@ import { setAlert } from "../../actions/alert";
 import { addAnimal } from "../../actions/animal";
 
 const config = {
-  bucketName: "adotelobo",
+  bucketName: process.env.REACT_APP_AWS_BUCKET_NAME,
   dirName: "photos" /* optional */,
   region: "sa-east-1",
-  accessKeyId: "AKIAJ5LYJYDAWHOJE5YA",
-  secretAccessKey: "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"
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
 };
 
 const S3Client = new S3(config);
@@ -34,7 +34,6 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
 
   const {
     name,
-    image,
     sex,
     type,
     age,
@@ -85,8 +84,15 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
           <small className="form-text">What`s the pet name ?</small>
         </div>
         <div className="form-group">
-          <input type="file" name="image" onChange={e => uploadImage(e)} />
-          <small className="form-text">Paste image URL</small>
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={e => uploadImage(e)}
+          />
+          <small className="form-text">
+            Wait untill the image upload success image show up
+          </small>
         </div>
         <div className="form-group">
           <select name="type" value={type} onChange={e => onChange(e)}>
@@ -161,7 +167,7 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
               <input
                 type="text"
                 placeholder="WhatsApp"
-                name="zap]"
+                name="zap"
                 value={zap}
                 onChange={e => onChange(e)}
               />
