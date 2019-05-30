@@ -11,7 +11,6 @@ const CreateProfile = ({ createProfile, history }) => {
     location: "",
     status: "",
     skills: "",
-    githubusername: "",
     bio: "",
     twitter: "",
     facebook: "",
@@ -28,7 +27,6 @@ const CreateProfile = ({ createProfile, history }) => {
     location,
     status,
     skills,
-    githubusername,
     bio,
     twitter,
     facebook,
@@ -48,40 +46,33 @@ const CreateProfile = ({ createProfile, history }) => {
 
   return (
     <>
-      <h1 className="large text-primary">Create Your Profile</h1>
+      <h1 className="large text-primary">Crie Seu Perfil</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Let's get some information to make your
-        profile stand out
+        <i className="fas fa-user" /> Forneça as informações necessárias
       </p>
-      <small>* = required field</small>
+      <small>* = Campo obrigatório</small>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <select name="status" value={status} onChange={e => onChange(e)}>
-            <option value="0">* Select Professional Status</option>
-            <option value="Developer">Developer</option>
-            <option value="Junior Developer">Junior Developer</option>
-            <option value="Senior Developer">Senior Developer</option>
-            <option value="Manager">Manager</option>
-            <option value="Student or Learning">Student or Learning</option>
-            <option value="Instructor">Instructor or Teacher</option>
-            <option value="Intern">Intern</option>
-            <option value="Other">Other</option>
+            <option value="0">* Professional Status</option>
+            <option value="Junior">Júnior</option>
+            <option value="Pleno">Pleno</option>
+            <option value="Senior">Sênior</option>
+            <option value="Outro">Outro</option>
           </select>
           <small className="form-text">
-            Give us an idea of where you are at in your career
+            Seu grau de experiência em seu campo de trabalho
           </small>
         </div>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Company"
+            placeholder="Empresa"
             name="company"
             value={company}
             onChange={e => onChange(e)}
           />
-          <small className="form-text">
-            Could be your own company or one you work for
-          </small>
+          <small className="form-text">Empresa</small>
         </div>
         <div className="form-group">
           <input
@@ -91,55 +82,41 @@ const CreateProfile = ({ createProfile, history }) => {
             value={website}
             onChange={e => onChange(e)}
           />
-          <small className="form-text">
-            Could be your own or a company website
-          </small>
+          <small className="form-text">O website seu ou da empresa.</small>
         </div>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Location"
+            placeholder="Localidade"
             name="location"
             value={location}
             onChange={e => onChange(e)}
           />
           <small className="form-text">
-            City & state suggested (eg. Boston, MA)
+            Cidade & Estado (eg. Barreiras, BA)
           </small>
         </div>
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Skills"
+            placeholder="* Habilidades"
             name="skills"
             value={skills}
             onChange={e => onChange(e)}
           />
           <small className="form-text">
-            Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
-          </small>
-        </div>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Github Username"
-            name="githubusername"
-            value={githubusername}
-            onChange={e => onChange(e)}
-          />
-          <small className="form-text">
-            If you want your latest repos and a Github link, include your
-            username
+            Use virgula para separá-las (ex. Construção, Mapeamento,
+            Gerenciamento, AutoCad)
           </small>
         </div>
         <div className="form-group">
           <textarea
-            placeholder="A short bio of yourself"
+            placeholder="Uma bio resumida sobre você"
             name="bio"
             value={bio}
             onChange={e => onChange(e)}
           />
-          <small className="form-text">Tell us a little about yourself</small>
+          <small className="form-text">Nos conte um pouco sobre você</small>
         </div>
 
         <div className="my-2">
@@ -148,9 +125,9 @@ const CreateProfile = ({ createProfile, history }) => {
             type="button"
             className="btn btn-light"
           >
-            Add Social Network Links
+            Adicione suas Redes Sociais
           </button>
-          <span>Optional</span>
+          <span>Opcional</span>
         </div>
 
         {displaySocialInputs && (
@@ -212,9 +189,9 @@ const CreateProfile = ({ createProfile, history }) => {
           </>
         )}
 
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" className="btn btn-primary my-1" value="Enviar" />
         <Link className="btn btn-light my-1" to="/dashboard">
-          Go Back
+          Voltar
         </Link>
       </form>
     </>

@@ -5,7 +5,7 @@ import Moment from "react-moment";
 const Education = ({ profile }) => {
   return (
     <div className="profile-edu bg-white p-2">
-      <h2 className="text-primary">Education</h2>
+      <h2 className="text-primary">Escolaridade</h2>
 
       {profile.education.length > 0 ? (
         <>
@@ -15,22 +15,22 @@ const Education = ({ profile }) => {
               <p>
                 <Moment format="DD/MM/YYYY">{edu.from}</Moment> -{" "}
                 {!edu.to ? (
-                  "Now"
+                  "Presente"
                 ) : (
                   <Moment format="DD/MM/YYYY">{edu.to}</Moment>
                 )}{" "}
               </p>
               <p>
-                <strong>Degree: </strong>
+                <strong>Grau: </strong>
                 {edu.degree}
               </p>
               <p>
-                <strong>Field Of Study: </strong>
+                <strong>Campo de estudo: </strong>
                 {edu.fieldofstudy}
               </p>
               {edu.description && (
                 <p>
-                  <strong>Description: </strong>
+                  <strong>Descrição: </strong>
                   {edu.description}.
                 </p>
               )}
@@ -38,7 +38,7 @@ const Education = ({ profile }) => {
           ))}
         </>
       ) : (
-        <h4>No education credentials</h4>
+        <h4>Sem escolaridade fornecida...</h4>
       )}
     </div>
   );

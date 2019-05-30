@@ -42,17 +42,16 @@ const AddEducation = ({ addEducation, history }) => {
 
   return (
     <>
-      <h1 className="large text-primary">Add Your Education</h1>
+      <h1 className="large text-primary">Adicione Sua Escolaridade</h1>
       <p className="lead">
-        <i className="fas fa-graduation-cap" /> Add any school, bootcamp, etc
-        that you have attended
+        <i className="fas fa-graduation-cap" /> Adicione a instituição
       </p>
-      <small>* = required field</small>
+      <small>* = campo obrigatório</small>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="* School or Bootcamp"
+            placeholder="* Instituição"
             name="school"
             value={school}
             onChange={e => onChange(e)}
@@ -62,7 +61,7 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Degree or Certificate"
+            placeholder="* Grau ou certificado"
             name="degree"
             value={degree}
             onChange={e => onChange(e)}
@@ -72,14 +71,14 @@ const AddEducation = ({ addEducation, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Field Of Study"
+            placeholder="Área de estudo"
             name="fieldofstudy"
             value={fieldofstudy}
             onChange={e => onChange(e)}
           />
         </div>
         <div className="form-group">
-          <h4>From Date</h4>
+          <h4>Data de inicio</h4>
           <input
             type="date"
             name="from"
@@ -96,11 +95,11 @@ const AddEducation = ({ addEducation, history }) => {
               value={current}
               onChange={e => onChangeCheckbox(e)}
             />{" "}
-            Current School or Bootcamp
+            Estudando atualmente
           </p>
         </div>
         <div className="form-group">
-          <h4>To Date</h4>
+          <h4>Data de término</h4>
           <input
             type="date"
             name="to"
@@ -116,12 +115,12 @@ const AddEducation = ({ addEducation, history }) => {
             onChange={e => onChange(e)}
             cols="30"
             rows="5"
-            placeholder="Program Description"
+            placeholder="Descrição"
           />
         </div>
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" className="btn btn-primary my-1" value="Enviar" />
         <Link className="btn btn-light my-1" to="/dashboard">
-          Go Back
+          Voltar
         </Link>
       </form>
     </>

@@ -22,7 +22,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async e => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert("Passwords do not match", "danger");
+      setAlert("Passwords não são iguais", "danger");
     } else {
       register({ name, email, password });
       // Request w/o redux
@@ -54,15 +54,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
 
   return (
     <>
-      <h1 className="large text-primary">Sign Up</h1>
+      <h1 className="large text-primary">Registrar</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Create Your Account
+        <i className="fas fa-user" /> Crie Sua Conta
       </p>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Nome"
             name="name"
             value={name}
             onChange={e => onChange(e)}
@@ -71,7 +71,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="email"
-            placeholder="Email Address"
+            placeholder="Email"
             name="email"
             value={email}
             onChange={e => onChange(e)}
@@ -99,10 +99,10 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <input type="submit" className="btn btn-primary" value="Register" />
+        <input type="submit" className="btn btn-primary" value="Registrar" />
       </form>
       <p className="my-1">
-        Already have an account? <Link to="/login">Sign In</Link>
+        Já possui uma conta? <Link to="/login">Entrar</Link>
       </p>
     </>
   );

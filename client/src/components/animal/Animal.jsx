@@ -1,14 +1,20 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import Moment from "react-moment";
 import PropTypes from "prop-types";
 import CommentForm from "./CommentForm";
 import CommentItem from "./CommentItem";
+import Top from "./Top";
+import About from "./About";
 import Spinner from "../layout/Spinner";
 import { getAnimalById } from "../../actions/animal";
 
-const Animal = ({ getAnimalById, animal: { animal, loading }, match }) => {
+const Animal = ({
+  getAnimalById,
+  animal: { animal, loading },
+  match,
+  auth
+}) => {
   useEffect(() => {
     getAnimalById(match.params.id);
   }, [getAnimalById, match.params.id]);
@@ -18,22 +24,23 @@ const Animal = ({ getAnimalById, animal: { animal, loading }, match }) => {
   ) : (
     <>
       <Link to="/animals" className="btn">
-        Back To Animals
+        Voltar
       </Link>
-      <div className="post bg-white p-1 my-1">
-        <div>
-          <Link to={`/profile/${animal.author}`}>
-            <img className="round-img" src={animal.avatar} alt="profile" />
-            <h4>{animal.name}</h4>
-          </Link>
-        </div>
-        <div>
-          <p className="my-1">{animal.description}</p>
-          <p className="post-date">
-            Posted on <Moment format="DD/MM/YYYY">{animal.createdAt}</Moment>
-          </p>
-        </div>
+
+      {auth.isAuthenticated &&
+      auth.loading === false &&
+      auth.user._id === animal.author ? (
+        <Link to="/animals" className="btn btn-dark">
+          Editar pet
+        </Link>
+      ) : (
+        <></>
+      )}
+      <div className="profile-grid my-1">
+        <Top animal={animal} />
+        <About animal={animal} />
       </div>
+
       <CommentForm animalId={animal._id} />
       <div className="comments">
         {animal.comments.map(comment => (

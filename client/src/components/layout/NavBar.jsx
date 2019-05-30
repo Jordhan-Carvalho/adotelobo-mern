@@ -10,19 +10,19 @@ const NavBar = ({ logout, auth: { isAuthenticated, loading } }) => {
       <li>
         <Link to="/dashboard">
           <i className="fas fa-user" />{" "}
-          <span className="hide-sm">Dashboard</span>
+          <span className="hide-sm">Painel de controle</span>
         </Link>
       </li>
       <li>
-        <Link to="/animals">Animals</Link>
+        <Link to="/animals">Animais</Link>
       </li>
       <li>
-        <Link to="/profiles">Profiles</Link>
+        <Link to="/profiles">Membros</Link>
       </li>
       <li>
         <a onClick={logout} href="/">
           <i className="fas fa-sign-out-alt" />{" "}
-          <span className="hide-sm">Logout</span>
+          <span className="hide-sm">Sair</span>
         </a>
       </li>
     </ul>
@@ -31,13 +31,13 @@ const NavBar = ({ logout, auth: { isAuthenticated, loading } }) => {
   const guestLinks = (
     <ul>
       <li>
-        <Link to="/animals">Animals</Link>
+        <Link to="/animals">Animais</Link>
       </li>
       <li>
-        <Link to="/profiles">Profiles</Link>
+        <Link to="/profiles">Membros</Link>
       </li>
       <li>
-        <Link to="/register">Register</Link>
+        <Link to="/register">Registrar</Link>
       </li>
       <li>
         <Link to="/login">Login</Link>
@@ -48,8 +48,8 @@ const NavBar = ({ logout, auth: { isAuthenticated, loading } }) => {
   return (
     <nav className="navbar bg-dark">
       <h1>
-        <Link to="/">
-          <i className="fas fa-code" /> Adote LOBO
+        <Link to="/animals">
+          <i className="fas fa-paw" /> Adote LOBO
         </Link>
       </h1>
       {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}

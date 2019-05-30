@@ -66,22 +66,21 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
 
   return (
     <>
-      <h1 className="large text-primary">Add An Animal</h1>
+      <h1 className="large text-primary">Adicione Um Pet</h1>
       <p className="lead">
-        <i className="fas fa-paw" /> Let's get some information to make your
-        animal stand out
+        <i className="fas fa-paw" /> Adicione as informações necessárias
       </p>
-      <small>* = required field</small>
+      <small>* = campo obrigatório</small>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Nome"
             name="name"
             value={name}
             onChange={e => onChange(e)}
           />
-          <small className="form-text">What`s the pet name ?</small>
+          <small className="form-text">Qual nome do pet ?</small>
         </div>
         <div className="form-group">
           <input
@@ -90,51 +89,49 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
             accept="image/*"
             onChange={e => uploadImage(e)}
           />
-          <small className="form-text">
-            Wait untill the image upload success image show up
-          </small>
+          <small className="form-text">Selecione a foto para upload</small>
         </div>
         <div className="form-group">
           <select name="type" value={type} onChange={e => onChange(e)}>
-            <option value="0">* Select Pet Type</option>
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <option value="Fish">Fish</option>
-            <option value="Bird">Bird</option>
-            <option value="Reptile">Reptile</option>
+            <option value="0">* Selecione o tipo de Pet</option>
+            <option value="Cachorro">Cachorro</option>
+            <option value="Gato">Gato</option>
+            <option value="Peixe">Peixe</option>
+            <option value="Ave">Ave</option>
+            <option value="Répteis">Répteis</option>
           </select>
           <small className="form-text">
-            Whats the type of the pet? dog? cat? fish?
+            Qual tipo do pet? Cachorro? Gato? Peixe?
           </small>
         </div>
         <div className="form-group">
           <select name="age" value={age} onChange={e => onChange(e)}>
-            <option value="0">* Select Age</option>
-            <option value="Puppy">Puppy</option>
-            <option value="Adult">Adult</option>
-            <option value="Old">Old</option>
+            <option value="0">* Idade aproximada</option>
+            <option value="Filhote">Filhote</option>
+            <option value="Adulto">Adulto</option>
+            <option value="Idoso">Idoso</option>
           </select>
-          <small className="form-text">Pet Age</small>
+          <small className="form-text">Idade aproximada</small>
         </div>
         <div className="form-group">
           <select name="sex" value={sex} onChange={e => onChange(e)}>
-            <option value="0">* Select Sex</option>
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
+            <option value="0">* Sexo</option>
+            <option value="Fêmea">Fêmea</option>
+            <option value="Macho">Macho</option>
           </select>
-          <small className="form-text">Pet Sex</small>
+          <small className="form-text">Sexo</small>
         </div>
 
         <div className="form-group">
           <input
             type="text"
-            placeholder="Location"
+            placeholder="Localização"
             name="location"
             value={location}
             onChange={e => onChange(e)}
           />
           <small className="form-text">
-            City & state suggested (eg. Boston, MA)
+            Cidade & estado (ex. Barreiras, BA)
           </small>
         </div>
 
@@ -145,7 +142,7 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
             onChange={e => onChange(e)}
             cols="30"
             rows="5"
-            placeholder="Pet Description"
+            placeholder="Descrição ou historia"
           />
         </div>
 
@@ -155,9 +152,8 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
             type="button"
             className="btn btn-light"
           >
-            Add Contact
+            Adicione Contato
           </button>
-          <span>Optional</span>
         </div>
 
         {displayContactInputs && (
@@ -188,7 +184,7 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
               <i className="fas fa-phone fa-2x" />
               <input
                 type="text"
-                placeholder="Phone"
+                placeholder="Tel"
                 name="tel"
                 value={tel}
                 onChange={e => onChange(e)}
@@ -197,9 +193,9 @@ const AddAnimal = ({ addAnimal, history, setAlert }) => {
           </>
         )}
 
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" className="btn btn-primary my-1" value="Enviar" />
         <Link className="btn btn-light my-1" to="/animals">
-          Go Back
+          Voltar
         </Link>
       </form>
     </>

@@ -13,13 +13,13 @@ const Landing = ({ isAuthenticated }) => {
       <div className="dark-overlay">
         <div className="landing-inner">
           <h1 className="x-large">Adote LOBO</h1>
-          <p className="lead">
-            Create a profile/portfolio/animal, share posts and get help from
-            other people
-          </p>
+          <p className="lead">Rede para adoção de animais de estimação</p>
           <div className="buttons">
-            <Link to="/register" className="btn btn-primary">
-              Sign Up
+            <Link to="/animals" className="btn btn-primary">
+              Visualizar
+            </Link>
+            <Link to="/register" className="btn btn-light">
+              Registrar
             </Link>
             <Link to="/login" className="btn btn-light">
               Login

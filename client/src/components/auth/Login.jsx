@@ -28,15 +28,15 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <>
-      <h1 className="large text-primary">Sign In</h1>
+      <h1 className="large text-primary">Entrar</h1>
       <p className="lead">
-        <i className="fas fa-user" /> Sign into Your Account
+        <i className="fas fa-user" /> Entre na sua conta
       </p>
       <form className="form" onSubmit={onSubmit}>
         <div className="form-group">
           <input
             type="email"
-            placeholder="Email Address"
+            placeholder="Email"
             name="email"
             value={email}
             onChange={e => onChange(e)}
@@ -56,7 +56,7 @@ const Login = ({ login, isAuthenticated }) => {
         <input type="submit" className="btn btn-primary" value="Login" />
       </form>
       <p className="my-1">
-        Don't have an account? <Link to="/register">Sign Up</Link>
+        Não tem conta? <Link to="/register">Registrar</Link>
       </p>
     </>
   );

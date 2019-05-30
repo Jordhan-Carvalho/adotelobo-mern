@@ -12,7 +12,7 @@ const Education = ({ education, deleteEducation }) => {
       <td className="hide-sm">
         <Moment format="DD/MM/YYYY">{edu.from}</Moment> -{" "}
         {edu.to === null ? (
-          "Now"
+          "Presente"
         ) : (
           <Moment format="DD/MM/YYYY">{edu.to}</Moment>
         )}
@@ -22,7 +22,7 @@ const Education = ({ education, deleteEducation }) => {
           onClick={() => deleteEducation(edu._id)}
           className="btn btn-danger"
         >
-          Delete
+          Deletar
         </button>
       </td>
     </tr>
@@ -30,13 +30,13 @@ const Education = ({ education, deleteEducation }) => {
 
   return (
     <>
-      <h2 className="my-2">Education Credentials</h2>
+      <h2 className="my-2">Escolaridade</h2>
       <table className="table">
         <thead>
           <tr>
-            <th>School</th>
-            <th className="hide-sm">Degree</th>
-            <th className="hide-sm">Years</th>
+            <th>Instituição</th>
+            <th className="hide-sm">Grau</th>
+            <th className="hide-sm">Ano</th>
             <th />
           </tr>
         </thead>

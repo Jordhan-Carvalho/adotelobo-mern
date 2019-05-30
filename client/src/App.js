@@ -7,6 +7,7 @@ import Routes from './components/routing/Routes';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
+import "moment/locale/pt-br";
 
 //redux
 import store from './store';

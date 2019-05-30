@@ -16,10 +16,10 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
         <Spinner />
       ) : (
         <>
-          <h1 className="large text-primary">Members/Contributers</h1>
+          <h1 className="large text-primary">Membros/Voluntários</h1>
           <p className="lead">
-            <i className="fab fa-connectdevelop" /> Browse and connect with
-            members/contributers
+            <i className="fab fa-connectdevelop" /> Veja a lista dos membros e
+            voluntários
           </p>
           <div className="profiles">
             {profiles.length > 0 ? (
@@ -27,7 +27,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
                 <ProfileItem key={profile._id} profile={profile} />
               ))
             ) : (
-              <h4>No profiles found... </h4>
+              <h4>Nenhuma perfil encontrado... </h4>
             )}
           </div>
         </>

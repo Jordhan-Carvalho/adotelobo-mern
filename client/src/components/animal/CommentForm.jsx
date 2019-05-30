@@ -15,19 +15,19 @@ const CommentForm = ({ addComment, animalId }) => {
   return (
     <div className="post-form">
       <div className="bg-primary p">
-        <h3>Leave a Comment</h3>
+        <h3>Deixe um comentário</h3>
       </div>
       <form className="form my-1" onSubmit={e => onSubmit(e)}>
         <textarea
           name="text"
           cols="30"
           rows="5"
-          placeholder="Create a comment"
+          placeholder="Criar comentário"
           value={text}
           onChange={e => setText(e.target.value)}
           required
         />
-        <input type="submit" className="btn btn-dark my-1" value="Submit" />
+        <input type="submit" className="btn btn-dark my-1" value="Enviar" />
       </form>
     </div>
   );

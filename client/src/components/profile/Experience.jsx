@@ -5,7 +5,7 @@ import Moment from "react-moment";
 const Experience = ({ profile }) => {
   return (
     <div className="profile-exp bg-white p-2">
-      <h2 className="text-primary">Experience</h2>
+      <h2 className="text-primary">Experiências</h2>
 
       {profile.experience.length > 0 ? (
         <>
@@ -15,18 +15,18 @@ const Experience = ({ profile }) => {
               <p>
                 <Moment format="DD/MM/YYYY">{exp.from}</Moment> -{" "}
                 {!exp.to ? (
-                  "Now"
+                  "Presente"
                 ) : (
                   <Moment format="DD/MM/YYYY">{exp.to}</Moment>
                 )}{" "}
               </p>
               <p>
-                <strong>Position: </strong>
+                <strong>Cargo: </strong>
                 {exp.title}
               </p>
               {exp.description && (
                 <p>
-                  <strong>Description: </strong>
+                  <strong>Descrição: </strong>
                   {exp.description}.
                 </p>
               )}
@@ -34,7 +34,7 @@ const Experience = ({ profile }) => {
           ))}
         </>
       ) : (
-        <h4>No experience credentials</h4>
+        <h4>Sem experiências fornecidas</h4>
       )}
     </div>
   );

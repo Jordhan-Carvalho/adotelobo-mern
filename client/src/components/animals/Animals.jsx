@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import AnimalItem from "./AnimalItem";
+import AnimalCard from "./AnimalCard";
 import Spinner from "../layout/Spinner";
 import { getAnimals } from "../../actions/animal";
 
@@ -17,16 +17,19 @@ const Animals = ({ getAnimals, animal: { animals, loading } }) => {
         <Spinner />
       ) : (
         <>
-          <h1 className="large text-primary">Animals</h1>
+          <h1 className="large text-primary">
+            Lista de animais esperando adoção
+          </h1>
           <p className="lead">
-            <i className="fas fa-user" /> Welcome to the community!
+            <i className="fas fa-user" /> Seja bem-vindo(a) a comunidade!
           </p>
           <Link to="/add-animal" className="btn btn-primary">
-            Add a new animal
+            <i className="fas fa-plus" /> Adicione um novo pet
           </Link>
-          <div className="posts">
+
+          <div className="grid-container">
             {animals.map(animal => (
-              <AnimalItem key={animal._id} animal={animal} />
+              <AnimalCard key={animal._id} animal={animal} />
             ))}
           </div>
         </>

@@ -34,17 +34,17 @@ const AddExperience = ({ addExperience, history }) => {
 
   return (
     <>
-      <h1 className="large text-primary">Add An Experience</h1>
+      <h1 className="large text-primary">Adicione uma experiência</h1>
       <p className="lead">
-        <i className="fas fa-code-branch" /> Add any developer/programming
-        positions that you have had in the past
+        <i className="fas fa-code-branch" /> Adicione qualquer cargo/experiência
+        passada.
       </p>
-      <small>* = required field</small>
+      <small>* = Campo obrigatório</small>
       <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Job Title"
+            placeholder="* Cargo"
             name="title"
             value={title}
             onChange={e => onChange(e)}
@@ -54,7 +54,7 @@ const AddExperience = ({ addExperience, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="* Company"
+            placeholder="* Empresa"
             name="company"
             value={company}
             onChange={e => onChange(e)}
@@ -64,14 +64,14 @@ const AddExperience = ({ addExperience, history }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Location"
+            placeholder="Localidade"
             name="location"
             value={location}
             onChange={e => onChange(e)}
           />
         </div>
         <div className="form-group">
-          <h4>From Date</h4>
+          <h4>Data de inicio</h4>
           <input
             type="date"
             name="from"
@@ -88,11 +88,11 @@ const AddExperience = ({ addExperience, history }) => {
               value={current}
               onChange={e => onChangeCheckbox(e)}
             />{" "}
-            Current Job
+            Trabalhando atualmente
           </p>
         </div>
         <div className="form-group">
-          <h4>To Date</h4>
+          <h4>Data de término</h4>
           <input
             type="date"
             name="to"
@@ -106,14 +106,14 @@ const AddExperience = ({ addExperience, history }) => {
             name="description"
             cols="30"
             rows="5"
-            placeholder="Job Description"
+            placeholder="Descrição do trabalho"
             value={description}
             onChange={e => onChange(e)}
           />
         </div>
-        <input type="submit" className="btn btn-primary my-1" />
+        <input type="submit" className="btn btn-primary my-1" value="Enviar" />
         <Link className="btn btn-light my-1" to="/dashboard">
-          Go Back
+          Voltar
         </Link>
       </form>
     </>

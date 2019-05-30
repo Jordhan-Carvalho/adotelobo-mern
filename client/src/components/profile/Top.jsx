@@ -9,7 +9,7 @@ const Top = ({
       <img className="round-img my-1" src={user.avatar} alt="profile" />
       <h1 className="large">{user.name}</h1>
       <p className="lead">
-        {status} {company && <span>at {company}</span>}
+        {status} {company && <span>na {company}</span>}
       </p>
       <p>{location && <span>{location}</span>}</p>
       <div className="icons my-1">

@@ -12,7 +12,7 @@ const auth = require('../../middleware/auth');
 // @acess Public
 router.get('/', async (req, res) => {
   try {
-    const animals = await Animal.find().sort({ date: -1 });
+    const animals = await Animal.find().sort({ createdAt: -1 });
 
     res.json(animals);
   } catch (err) {
